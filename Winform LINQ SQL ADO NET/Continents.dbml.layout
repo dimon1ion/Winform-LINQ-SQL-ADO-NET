@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.875, 8.5" name="Continents">
+  <DataContextMoniker Name="/ContinentsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0d897ef3-877b-456b-b9b8-532304114f0d" absoluteBounds="5.875, 1.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/ContinentsDataContext/Continent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d0848ef-7057-405d-9a37-c573cfd2006d" absoluteBounds="5.89, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3874fff5-4098-493e-8376-28e384151f0a" absoluteBounds="8.25, 2, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ContinentsDataContext/Country" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6f311154-e381-4118-aba4-84d40d9f94a9" absoluteBounds="8.265, 2.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.875 : 2.53449625651042); (8.25 : 2.53449625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContinentsDataContext/Continent/Continent_Country" />
+      <nodes>
+        <classShapeMoniker Id="0d897ef3-877b-456b-b9b8-532304114f0d" />
+        <classShapeMoniker Id="3874fff5-4098-493e-8376-28e384151f0a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="62927d51-9d87-4e37-8058-d285ffd8a880" absoluteBounds="10.625, 2.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ContinentsDataContext/Town" />
+      <nestedChildShapes>
+        <elementListCompartment Id="91a98fef-8771-4d33-afae-83a0fe7dad85" absoluteBounds="10.64, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.25 : 3.03929768880208); (10.625 : 3.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContinentsDataContext/Country/Country_Town" />
+      <nodes>
+        <classShapeMoniker Id="3874fff5-4098-493e-8376-28e384151f0a" />
+        <classShapeMoniker Id="62927d51-9d87-4e37-8058-d285ffd8a880" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

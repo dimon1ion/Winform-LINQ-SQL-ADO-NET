@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="World" Class="ContinentsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=World;Integrated Security=True" SettingsObjectName="Winform_LINQ_SQL_ADO_NET.Properties.Settings" SettingsPropertyName="WorldConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Continents" Member="Continents">
+    <Type Name="Continent">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Continent_Country" Member="Countries" ThisKey="Id" OtherKey="ContinentId" Type="Country" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Countries" Member="Countries">
+    <Type Name="Country">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ContinentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Area" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="Country_Town" Member="Towns" ThisKey="Id" OtherKey="CountryId" Type="Town" />
+      <Association Name="Continent_Country" Member="Continent" ThisKey="ContinentId" OtherKey="Id" Type="Continent" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Towns" Member="Towns">
+    <Type Name="Town">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CountryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Population" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Capital" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Country_Town" Member="Country" ThisKey="CountryId" OtherKey="Id" Type="Country" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

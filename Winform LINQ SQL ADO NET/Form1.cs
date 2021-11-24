@@ -26,9 +26,12 @@ namespace Winform_LINQ_SQL_ADO_NET
             dataContext = new ContinentsDataContext();
 
             button2.Enabled = false;
+            button3.Enabled = false;
             comboBox1.Enabled = false;
             comboBox2.Visible = false;
             comboBox3.Visible = false;
+            toolTip1.SetToolTip(button3, "Work with \"Select Continents\"");
+
 
             if (comboBox1.Items.Count > 0)
             {
@@ -392,6 +395,7 @@ namespace Winform_LINQ_SQL_ADO_NET
             labelVerify.ForeColor = Color.Green;
             labelVerify.Text = "verified";
             button2.Enabled = true;
+            button3.Enabled = true;
             comboBox1.Enabled = true;
 
 
@@ -402,9 +406,11 @@ namespace Winform_LINQ_SQL_ADO_NET
             switch (comboBox1.SelectedIndex)
             {
                 case 0:
-                    dataGridView1.DataSource = from continent in dataContext.Continents select new { continent.Id, continent.Name };
+                    //dataGridView1.DataSource = from continent in dataContext.Continents select new { continent.Id, continent.Name };
+                    dataGridView1.DataSource = dataContext.Continents; // Update здесь работает т.к. передаем ссылку
                     break;
                 case 1:
+                    // В этом случае не работает, потому что создается отдельная коллекция или заполняются копии данных по очереди в dataGridView, но я выбрал красивую таблицу вместо функции UPDATE
                     dataGridView1.DataSource = from country in dataContext.Countries select new { country.Id, country.Name, country.Area };
                     break;
                 case 2:
@@ -528,6 +534,11 @@ namespace Winform_LINQ_SQL_ADO_NET
                 default:
                     break;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataContext.SubmitChanges();
         }
     }
 }
